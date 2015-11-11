@@ -86,3 +86,5 @@ class MySUVkSkin2 : SneakCustoms{
 
 You can use *.paa or *.jpg as texture files.
 When you add more than 1 or 2 better go for the jpg because *.paa files are huge.
+
+NEVER start the path with a "\"!
