@@ -71,9 +71,9 @@ if(_currentVehicleId > -1) then {
 				[_currentVehicle, _skinTextures] call SneakCustoms_update_vehicle;
 			};
 		};
-	} else {
-		diag_log "[SNEAK_CUSTOMS]Invalid vehicleId";	
 	};
+} else {
+		diag_log "[SNEAK_CUSTOMS]Invalid vehicleId";	
 };
 
 

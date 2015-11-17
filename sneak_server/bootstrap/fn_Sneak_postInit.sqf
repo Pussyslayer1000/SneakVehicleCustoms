@@ -12,12 +12,14 @@ _vehicleIdAndSkin = format ["getVehicleSkinIdPage:%1:%2", _page * _pageSize, _pa
 _count = count vehicles;
 _allVehicles = vehicles;
 diag_log "[SNEAK_CUSTOMS]applying custom skins";
+diag_log format ["[SNEAK_CUSTOMS]found %1 vehicles", _count];
 
 for [{_i = 0}, {_i < _count}, {_i = _i + 1}] do {
 	if !(isNil {((_allVehicles select _i) getVariable "ExileDatabaseID")}) then {
 		for[{_j = 0}, {_j < (count _vehicleIdAndSkin)}, {_j = _j + 1}] do {
 			if(((_vehicleIdAndSkin select _j) find ((_allVehicles select _i) getVariable "ExileDatabaseID")) != -1) then {
-				_skinTextures = getArray(missionConfigFile >> "CfgSneakClient" >> "CfgSneakCustoms" >> ((_vehicleIdAndSkin select _j) select 1) >> "hiddenSelectionsTextures");
+				_skinTextures = getArray(missionConfigFile >> "CfgSneakCustoms" >> ((_vehicleIdAndSkin select _j) select 1) >> "hiddenSelectionsTextures");
+				diag_log format ["[SNEAK_CUSTOMS]applying skin %1, to ID %2", ((_vehicleIdAndSkin select _j) select 1), (_vehicleIdAndSkin select _j)];
 				{
 					(_allVehicles select _i) setObjectTextureGlobal [_forEachIndex, _x];
 				} forEach _skinTextures;
