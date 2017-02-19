@@ -75,7 +75,8 @@ We want to add a custom skin for the SUV:
 	    skins[] = {
 		    {"MySUVSkin", 500},
 		    {"MySUVSkin2", 500}
-    };
+        };
+    }
 
     class MySUVkSkin : SneakCustoms{
 	    skinName = "My SUV 01";
