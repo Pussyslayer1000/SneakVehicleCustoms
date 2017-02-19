@@ -19,7 +19,7 @@ for [{_i = 0}, {_i < _count}, {_i = _i + 1}] do {
 		for[{_j = 0}, {_j < (count _vehicleIdAndSkin)}, {_j = _j + 1}] do {
 			if(((_vehicleIdAndSkin select _j) find ((_allVehicles select _i) getVariable "ExileDatabaseID")) != -1) then {
 				_skinTextures = getArray(missionConfigFile >> "CfgSneakCustoms" >> ((_vehicleIdAndSkin select _j) select 1) >> "hiddenSelectionsTextures");
-				diag_log format ["[SNEAK_CUSTOMS]applying skin %1, to ID %2", ((_vehicleIdAndSkin select _j) select 1), (_vehicleIdAndSkin select _j)];
+				diag_log format ["[SNEAK_CUSTOMS]applying skin %1, to ID %2", ((_vehicleIdAndSkin select _j) select 1), ((_vehicleIdAndSkin select _j) select 0)];
 				{
 					(_allVehicles select _i) setObjectTextureGlobal [_forEachIndex, _x];
 				} forEach _skinTextures;
