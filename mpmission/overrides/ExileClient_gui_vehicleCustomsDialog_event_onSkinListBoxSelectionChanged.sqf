@@ -17,8 +17,13 @@ private ["_skinClassName", "_skinTextures", "_tmp", "_skinTexturesTmp"];
 		_skinTexturesTmp = getArray(configFile >> "CfgVehicles" >> _skinClassName >> "hiddenSelectionsTextures");
 	    //delete first "/" from "/a3/..." to match getObjectTextures
 	    {
-	    	_tmp = [_x, 1] call BIS_fnc_trimString;
-	    	_skinTextures pushBack (toLower _tmp);
+	    	if([_x, 0, 1] call BIS_fnc_trimString isEqualTo "/") then {
+	    		_tmp = [_x, 1] call BIS_fnc_trimString;
+	    		_skinTextures pushBack (toLower _tmp);
+	    	} else {
+	    		_skinTextures pushBack (_x);
+	    	}
+
 		} forEach _skinTexturesTmp;
 		_skinTextures
 	} else {

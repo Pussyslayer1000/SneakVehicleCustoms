@@ -1,4 +1,6 @@
 /**
+ * ExileClient_gui_vehicleCustomsDialog_updateVehicle
+ *
  * Exile Mod
  * www.exilemod.com
  * © 2015 Exile Mod Team
@@ -17,6 +19,7 @@ _skinListBox = _dialog displayCtrl 4001;
 ExileClientVehicleCustomsOriginalSkin call ExileClient_gui_modelBox_update;
 lbClear _skinListBox;
 _parentClassName = configName (inheritsFrom (configFile >> "CfgVehicles" >> ExileClientVehicleCustomsOriginalSkin));
+
 //add custom classes
 if (isClass (missionConfigFile >> "CfgVehicleCustoms" >> _parentClassName)  || isClass (missionConfigFile >> "CfgSneakCustoms" >> _parentClassName) ) then
 {
