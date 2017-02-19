@@ -60,30 +60,31 @@ only add additional Skins to the list or there will be duplicates!
 Add the Base class of the Vehicle you want to add into the SneakCustoms_config.cpp into CfgSneakCustoms then add an array that is called "skins" which contains subarrays with ClassName for your skin and the price. (exactly like the vehicle customs entries in the standard config!)
 
 After that create the Skinclass into CfgSneakCustoms like: 
-class BaseClassName : SneakCustoms{
-	skinName = "Name shown in the Vehicle customs list";
-	hiddenSelectionsTextures[] = {"Texture01Path","Texture02Path"...};
-};
+
+    class BaseClassName : SneakCustoms{
+	    skinName = "Name shown in the Vehicle customs list";
+	    hiddenSelectionsTextures[] = {"Texture01Path","Texture02Path"...};
+    };
 
 When you want to add custom textures in your mission file the path needs to be like this:
-"mpmissions\__cur_mp.MAPNAME\..."
+    "mpmissions\__cur_mp.MAPNAME\..."
 Example:
 We want to add a custom skin for the SUV:
 
-class Exile_Car_SUV_Abstract{
-	skins[] = {
-		{"MySUVSkin", 500},
-		{"MySUVSkin2", 500}
-};
+    class Exile_Car_SUV_Abstract{
+	    skins[] = {
+		    {"MySUVSkin", 500},
+		    {"MySUVSkin2", 500}
+    };
 
-class MySUVkSkin : SneakCustoms{
-	skinName = "My SUV 01";
-	hiddenselectionTextures[] = {"mpmissions\__cur_mp.altis\textures\MySuv01.jpg"};
-};
-class MySUVkSkin2 : SneakCustoms{
-	skinName = "My SUV 02";
-	hiddenselectionTextures[] = {"mpmissions\__cur_mp.altis\textures\MySuv02.jpg"};
-};
+    class MySUVkSkin : SneakCustoms{
+	    skinName = "My SUV 01";
+	    hiddenselectionTextures[] = {"mpmissions\__cur_mp.altis\textures\MySuv01.jpg"};
+    };
+    class MySUVkSkin2 : SneakCustoms{
+	    skinName = "My SUV 02";
+	    hiddenselectionTextures[] = {"mpmissions\__cur_mp.altis\textures\MySuv02.jpg"};
+    };
 
 
 You can use *.paa or *.jpg as texture files.
