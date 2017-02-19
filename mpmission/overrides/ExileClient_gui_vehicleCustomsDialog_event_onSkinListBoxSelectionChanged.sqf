@@ -21,13 +21,22 @@ private ["_skinClassName", "_skinTextures", "_tmp", "_skinTexturesTmp"];
 	    		_tmp = [_x, 1] call BIS_fnc_trimString;
 	    		_skinTextures pushBack (toLower _tmp);
 	    	} else {
-	    		_skinTextures pushBack (_x);
+	    		_skinTextures pushBack (toLower _x);
 	    	}
 
 		} forEach _skinTexturesTmp;
 		_skinTextures
 	} else {
-		_skinTextures = getArray(missionConfigFile >> "CfgSneakCustoms" >> _skinClassName >> "hiddenSelectionsTextures");
+		_skinTexturesTmp = getArray(missionConfigFile >> "CfgSneakCustoms" >> _skinClassName >> "hiddenSelectionsTextures");
+		{
+	    	if([_x, 0, 1] call BIS_fnc_trimString isEqualTo "/") then {
+	    		_tmp = [_x, 1] call BIS_fnc_trimString;
+	    		_skinTextures pushBack (toLower _tmp);
+	    	} else {
+	    		_skinTextures pushBack (toLower _x);
+	    	}
+
+		} forEach _skinTexturesTmp;
 		_skinTextures
 	};
 };
