@@ -1,5 +1,3 @@
-![Screenshots](http://imgur.com/a/uQfhO)
-
 I expect everyone to know how to handle pbo's and getting scripts on your server so i wont explain this.
 
 Installation:
@@ -92,3 +90,7 @@ You can use *.paa or *.jpg as texture files.
 When you add more than 1 or 2 better go for the jpg because *.paa files are huge.
 
 NEVER start the path with a "\"!
+
+![Screenshot_01](http://i.imgur.com/VKKmx7c.jpg)
+![Screenshot_02](http://i.imgur.com/ylMq989.jpg)
+![Screenshot_03](http://i.imgur.com/6hthJmR.jpg)
