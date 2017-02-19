@@ -1,4 +1,4 @@
-http://imgur.com/a/uQfhO
+![Screenshots](http://imgur.com/a/uQfhO)
 
 I expect everyone to know how to handle pbo's and getting scripts on your server so i wont explain this.
 
@@ -12,31 +12,35 @@ Installation:
 	-compile as pbo and add to your server in: @ExileServer\addons
 
 -mpmissions
-	-add the mpmissions folder to your server
-	-open the config.cpp and add 
+-unpack the mpmission *.pbo you want to modify
+-integrate the mpmission in your mpmission
+-open the config.cpp and add 
 
-ExileClient_gui_vehicleCustomsDialog_event_onPurchaseButtonClick = "overrides\ExileClient_gui_vehicleCustomsDialog_event_onPurchaseButtonClick.sqf";
+    #include "SneakCustoms_config.cpp" 
 
-		ExileClient_gui_vehicleCustomsDialog_event_onSkinListBoxSelectionChanged = "overrides\ExileClient_gui_vehicleCustomsDialog_event_onSkinListBoxSelectionChanged.sqf";
+at the top of your config.cpp
 
-		ExileClient_gui_vehicleCustomsDialog_event_onVehicleDropDownSelectionChanged = "overrides\ExileClient_gui_vehicleCustomsDialog_event_onVehicleDropDownSelectionChanged.sqf";
+    ExileClient_gui_vehicleCustomsDialog_event_onPurchaseButtonClick = "overrides\ExileClient_gui_vehicleCustomsDialog_event_onPurchaseButtonClick.sqf";
 
-		ExileClient_gui_vehicleCustomsDialog_show = "overrides\ExileClient_gui_vehicleCustomsDialog_show.sqf";
+    ExileClient_gui_vehicleCustomsDialog_event_onSkinListBoxSelectionChanged = "overrides\ExileClient_gui_vehicleCustomsDialog_event_onSkinListBoxSelectionChanged.sqf";
 
-		ExileClient_gui_vehicleCustomsDialog_updateVehicle = "overrides\ExileClient_gui_vehicleCustomsDialog_updateVehicle.sqf";
+    ExileClient_gui_vehicleCustomsDialog_event_onVehicleDropDownSelectionChanged = "overrides\ExileClient_gui_vehicleCustomsDialog_event_onVehicleDropDownSelectionChanged.sqf";
 
-	in class CfgCustomCode
-	note: if you want to open the menu with a different key, this is the place to go.
-	also add #include "addons\sneak_customs\SneakCustoms_config.cpp" at the top of your config.cpp
+    ExileClient_gui_vehicleCustomsDialog_show = "overrides\ExileClient_gui_vehicleCustomsDialog_show.sqf";
 
-	-add 
-		class SneakCustoms_change_skin {allowedTargets = 2;};
-	to CfgRemoteExec -> CfgFunctions
-	(description.ext)
+    ExileClient_gui_vehicleCustomsDialog_updateVehicle = "overrides\ExileClient_gui_vehicleCustomsDialog_updateVehicle.sqf";
 
--Battleye
-	-im still working this out you can try everything when battleye is off, pls contact me
-	if you have expierince with Battleye! (sneakcustoms@gmail.com)
+in class CfgCustomCode
+
+-add 
+
+    class SneakCustoms_change_skin 
+    {
+    	allowedTargets = 2;
+    };
+
+to CfgRemoteExec -> CfgFunctions
+(description.ext)
 
 Questions, bugreports or suggestions to:
 sneakcustoms@gmail.com
