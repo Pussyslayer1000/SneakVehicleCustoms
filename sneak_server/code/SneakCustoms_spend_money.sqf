@@ -15,7 +15,7 @@ _player setVariable ["ExileMoney", _playerMoney];
 
 diag_log "[SNEAK_CUSTOMS]spend money";
 
-format["setAccountMoney:%1:%2", _playerMoney, (getPlayerUID _player)] call ExileServer_system_database_query_fireAndForget;
-[_player, "notificationRequest", ["VehicleSkinPurchasedInformation", [_skinPrice * -1]]] call ExileServer_system_network_send_to;
-[_sessionId, "moneySentRequest", [str _playerMoney, "Skin"]] call ExileServer_system_network_send_to;
+format["setPlayerMoney:%1:%2", _playerMoney, (getPlayerUID _player)] call ExileServer_system_database_query_fireAndForget;
+[_sessionId, "toastRequest", ["SuccessTitleAndText", ["Skin applied", format ["%1 Tabs",(_skinPrice * -1)]]]] call ExileServer_system_network_send_to;
+//[_sessionId, "moneyTransactionResponse", [str _playerMoney, "Skin"]] call ExileServer_system_network_send_to;
 true

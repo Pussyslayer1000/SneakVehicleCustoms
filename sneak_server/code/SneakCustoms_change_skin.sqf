@@ -28,7 +28,7 @@ if(_currentVehicleId > -1) then {
 		[_player, _skinPrice, _sessionId] call SneakCustoms_spend_money;
 		_paid = true;
 	} else {
-		[_player, "notificationRequest", ["LockKickWarning", ["You dont have enough Pop-Tabs."]]] call ExileServer_system_network_send_to;
+		[_sessionId, "toastRequest", ["ErrorTitleOnly", ["You dont have enough Pop-Tabs."]]] call ExileServer_system_network_send_to;
 		_paid = false;
 	};
 
@@ -59,7 +59,7 @@ if(_currentVehicleId > -1) then {
 		} else {
 			//check if custom skin
 			if(configName(inheritsFrom (missionConfigFile >> "CfgSneakCustoms" >> _skinClass)) isEqualTo "SneakCustoms") then {
-				format ["createVehicleWithSkin:%1:%2", _currentVehicleId, _skinName] call ExileServer_system_database_query_fireAndForget;
+				format ["createVehicleWithSkin:%1:%2", _currentVehicleId, _skinClass] call ExileServer_system_database_query_fireAndForget;
 				diag_log format ["[SNEAK_CUSTOMS]Adding vehicle %1 with skin %2", _currentVehicleId, _skinClass];
 				_skinTextures = getArray(missionConfigFile >> "CfgSneakCustoms" >> _skinClass >> "hiddenSelectionsTextures");
 				[_currentVehicle, _skinTextures] call SneakCustoms_update_vehicle;
