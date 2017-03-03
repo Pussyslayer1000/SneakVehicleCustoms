@@ -48,11 +48,11 @@ if(_currentVehicleId > -1) then {
 				_skinTextures = getArray(missionConfigFile >> "CfgSneakCustoms" >> _skinClass >> "hiddenSelectionsTextures");
 				[_currentVehicle, _skinTextures] call SneakCustoms_update_vehicle;
 			} else {
+				_skinTextures = getArray(ConfigFile >>"CfgVehicles" >> _skinClass >> "hiddenSelectionsTextures");
 				format["deleteVehicleWithSkin:%1", _currentVehicleId] call ExileServer_system_database_query_fireAndForget;
-				format["updateVehicleClass:%1:%2", _skinClass, _currentVehicleId] call ExileServer_system_database_query_fireAndForget;
+				format["updateVehicleSkin:%1:%2", _skinTextures, _currentVehicleId] call ExileServer_system_database_query_fireAndForget;
 				diag_log format ["[SNEAK_CUSTOMS]Deleting vehicle %1.", _currentVehicleId];
 				diag_log format ["[SNEAK_CUSTOMS]Changing baseclass in database of non custom vehicle, vehicleId: %1, skin %2", _currentVehicleId, _skinClass];
-				_skinTextures = getArray(ConfigFile >>"CfgVehicles" >> _skinClass >> "hiddenSelectionsTextures");
 				[_currentVehicle, _skinTextures] call SneakCustoms_update_vehicle;
 			};
 
@@ -64,9 +64,9 @@ if(_currentVehicleId > -1) then {
 				_skinTextures = getArray(missionConfigFile >> "CfgSneakCustoms" >> _skinClass >> "hiddenSelectionsTextures");
 				[_currentVehicle, _skinTextures] call SneakCustoms_update_vehicle;
 			} else {
-				format["updateVehicleClass:%1:%2", _skinClass, _currentVehicleId] call ExileServer_system_database_query_fireAndForget;
-				diag_log format ["[SNEAK_CUSTOMS]Changing baseclass in database of non custom vehicle, vehicleId: %1, skin %2", _currentVehicleId, _skinClass];
 				_skinTextures = getArray(ConfigFile >>"CfgVehicles" >> _skinClass >> "hiddenSelectionsTextures");
+				format["updateVehicleSkin:%1:%2", _skinTextures, _currentVehicleId] call ExileServer_system_database_query_fireAndForget;
+				diag_log format ["[SNEAK_CUSTOMS]Changing baseclass in database of non custom vehicle, vehicleId: %1, skin %2", _currentVehicleId, _skinClass];
 				diag_log format ["_skinTextures %1", _skinTextures];
 				[_currentVehicle, _skinTextures] call SneakCustoms_update_vehicle;
 			};
