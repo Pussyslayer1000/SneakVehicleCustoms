@@ -5,7 +5,7 @@ Installation:
 - Database
 
 	- import the _sql\sneak_customs.sql into your database
-    
+
 	- add the content of _sql\sneak_exile.ini at the end of your exile.ini (@ExileServer\extDB\sql_custom_v2\exile.ini)
 
 - Serverside
@@ -43,17 +43,16 @@ in class CfgCustomCode
 
     class SneakCustoms_change_skin 
     {
-    	allowedTargets = 2;
+        allowedTargets = 2;
     };
 
-to CfgRemoteExec -> CfgFunctions
-(description.ext)
+    - to CfgRemoteExec -> CfgFunctions (description.ext)
 
 - Special skins for special players
 
-- Every skin can be part of a group so only players who are part of a specific group can purchase certain skins
+    - Every skin can be part of a group so only players who are part of a specific group can purchase certain skins
 
-- Available as LiteVersion(config only) or DB managed
+    - Available as LiteVersion(config only) or DB managed
 
 
 
