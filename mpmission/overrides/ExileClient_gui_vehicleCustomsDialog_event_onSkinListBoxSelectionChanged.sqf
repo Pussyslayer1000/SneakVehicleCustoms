@@ -96,6 +96,8 @@ _originalTextures = getObjectTextures ExileClientVehicleCustomsOriginalVehicle;
 SkinClassName = _skinClass;
 OriginalTextures = _originalTextures;
 SkinPrice = parseNumber (_listBox lbTextRight _index);
+//AvailableForGroup = getText (missionConfigFile >> "CfgSneakCustoms" >> _skinClass >> "availableFor");
+AvailableForGroup = [(missionConfigFile >> "CfgSneakCustoms" >> _skinClass),"availableFor", "All"] call BIS_fnc_returnConfigEntry;
 
 _purchaseButton ctrlEnable !(_originalTextures isEqualTo _skinTextures);
 

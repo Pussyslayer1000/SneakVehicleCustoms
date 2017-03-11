@@ -9,6 +9,6 @@
  
 //["purchaseVehicleSkinRequest", [netId ExileClientVehicleCustomsOriginalVehicle, ExileClientVehicleCustomsSelectedSkin]] call ExileClient_system_network_send;
 
-[ExileClientSessionId, netId ExileClientVehicleCustomsOriginalVehicle, SkinClassName, netId player, SkinPrice, OriginalTextures] remoteExecCall ['SneakCustoms_change_skin', 2];
+[ExileClientSessionId, netId ExileClientVehicleCustomsOriginalVehicle, SkinClassName, netId player, SkinPrice, OriginalTextures, AvailableForGroup] remoteExecCall ['SneakCustoms_change_skin', 2];
 
 closeDialog 0;

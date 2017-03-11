@@ -19,18 +19,21 @@ class CfgSneakCustoms{
 	};
 
 	class SneakCustoms_Car_Strider_Desert : SneakCustoms{ //class derivative to distinguish between standard and custom skins
-		skinName = "Desert";
-        hiddenSelectionsTextures[] = {"a3\soft_f_beta\mrap_03\data\mrap_03_ext_co.paa", "a3\data_f\vehicles\turret_co.paa"};
+		skinName = "Desert"; //Name that appears in the Vehicle Customs Trader Dialog
+        hiddenSelectionsTextures[] = {"a3\soft_f_beta\mrap_03\data\mrap_03_ext_co.paa", "a3\data_f\vehicles\turret_co.paa"}; //Skin files to use
+        availableFor = "Vip"; //what group will be able to purchase this skin
 	};
 
 	class SneakCustoms_Car_Strider_Bangbus : SneakCustoms{ //class derivative to distinguish between standard and custom skins
 		skinName = "Bangbus by Aphex";
         hiddenSelectionsTextures[] = {"mpmissions\__cur_mp.Altis\textures\SneakVehicleCustoms\bangbus_by_aphex.jpg", "a3\data_f\vehicles\turret_co.paa"};
+        availableFor = "Staff";
 	};
 
 	class Exile_Car_Strider : SneakCustoms{ //standard strider is listed here because there is no texture entry in the standard exile config
         skinName = "Hex";
         hiddenSelectionsTextures[] = {"a3\soft_f_beta\mrap_03\data\mrap_03_ext_indp_co.paa", "a3\data_f\vehicles\turret_indp_co.paa"};
+        //missing availableFor will make this skin available for everyone
     };
 };
 

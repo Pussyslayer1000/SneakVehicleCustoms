@@ -2,17 +2,26 @@ I expect everyone to know how to handle pbo's and getting scripts on your server
 
 Installation:
 
--Database
-	-import the _sql\sneak_customs.sql into your database
-	-add the content of _sql\sneak_exile.ini at the end of your exile.ini (@ExileServer\extDB\sql_custom_v2\exile.ini)
+- Database
 
--Serverside
-	-compile as pbo and add to your server in: @ExileServer\addons
+	- import the _sql\sneak_customs.sql into your database
+    
+	- add the content of _sql\sneak_exile.ini at the end of your exile.ini (@ExileServer\extDB\sql_custom_v2\exile.ini)
 
--mpmissions
--unpack the mpmission *.pbo you want to modify
--integrate the mpmission in your mpmission
--open the config.cpp and add 
+- Serverside
+
+    - adjust settings in config.cpp
+
+	- compile as pbo and add to your server in: @ExileServer\addons
+
+    - mpmissions
+
+    - unpack the mpmission *.pbo you want to modify
+
+    - integrate the mpmission in your mpmission
+
+    - open the config.cpp and add 
+
 
     #include "SneakCustoms_config.cpp" 
 
@@ -30,7 +39,7 @@ at the top of your config.cpp
 
 in class CfgCustomCode
 
--add 
+- add 
 
     class SneakCustoms_change_skin 
     {
@@ -39,6 +48,14 @@ in class CfgCustomCode
 
 to CfgRemoteExec -> CfgFunctions
 (description.ext)
+
+- Special skins for special players
+
+- Every skin can be part of a group so only players who are part of a specific group can purchase certain skins
+
+- Available as LiteVersion(config only) or DB managed
+
+
 
 Questions, bugreports or suggestions to:
 sneakcustoms@gmail.com
@@ -81,10 +98,12 @@ We want to add a custom skin for the SUV:
     class MySUVkSkin : SneakCustoms{
 	    skinName = "My SUV 01";
 	    hiddenselectionTextures[] = {"mpmissions\__cur_mp.altis\textures\MySuv01.jpg"};
+        availableFor = "Vip"; //what group will be able to purchase this skin
     };
     class MySUVkSkin2 : SneakCustoms{
 	    skinName = "My SUV 02";
 	    hiddenselectionTextures[] = {"mpmissions\__cur_mp.altis\textures\MySuv02.jpg"};
+        //missing availableFor will make this skin available for everyone
     };
 
 

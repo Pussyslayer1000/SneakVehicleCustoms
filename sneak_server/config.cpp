@@ -34,9 +34,20 @@ class CfgFunctions {
 
 class CfgSettings
 {
-    class SneakSettings{
-        
+    groupsActive = 1; //All animals are equal, but some animals are more equal than others... 1 for using group feature
+    liteVersion = 0; //set to 1 if you want to manage the UID list in this config instead of the Database
+
+    class SneakCustomsGroup_Vip{
+        // Sneak, 
+        uids[] = {"76561197964219162", "xxxxxxx"}; //append your uids in here, it would be very kind of you if you leave mine in place and accept this addon as a donation :D
     };
+
+    class SneakCustomsGroup_Staff{
+        // Sneak, 
+        uids[] = {/*"76561197964219162", */"xxxxxxx"}; //append your uids in here, it would be very kind of you if you leave mine in place and accept this addon as a donation :D
+    };
+
+    //add new groups like this: class SneakCustomsGroup_YOURGORUPNAMEHERE{};
 };
 
 
