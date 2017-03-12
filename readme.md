@@ -22,7 +22,6 @@ Installation:
 
     - open the config.cpp and add 
 
-
     #include "SneakCustoms_config.cpp" 
 
 at the top of your config.cpp
