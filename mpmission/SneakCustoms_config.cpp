@@ -33,7 +33,7 @@ class CfgSneakCustoms{
 	class Exile_Car_Strider : SneakCustoms{ //standard strider is listed here because there is no texture entry in the standard exile config
         skinName = "Hex";
         hiddenSelectionsTextures[] = {"a3\soft_f_beta\mrap_03\data\mrap_03_ext_indp_co.paa", "a3\data_f\vehicles\turret_indp_co.paa"};
-        //missing availableFor will make this skin available for everyone
+        availableFor = "All";
     };
 };
 
