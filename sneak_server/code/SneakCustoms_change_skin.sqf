@@ -38,9 +38,9 @@ if(_groupsActive ==  1) then {
 		_validUIDs = getArray(configFile >> "CfgSettings" >> "SneakCustomsGroup_" + _availableForGroup >> "uids");
 		if(((getPlayerUID _player) in _validUIDs) OR (_availableForGroup == "All")) then {
 			_allowPurchase = true;
-			diag_log format ["[SNEAK_CUSTOMS]Allow purchase of %1 for %2", _availableForGroup, getPlayerUID _player];
+			diag_log format ["[SNEAK_CUSTOMS-01]Allow purchase of %1 for %2", _availableForGroup, getPlayerUID _player];
 		} else {
-			diag_log format ["[SNEAK_CUSTOMS]Decline purchase of %1 skin for %2", _availableForGroup, getPlayerUID _player];
+			diag_log format ["[SNEAK_CUSTOMS-01]Decline purchase of %1 skin for %2", _availableForGroup, getPlayerUID _player];
 			[_sessionId, "toastRequest", ["ErrorTitleOnly", ["Sorry this Skin is Donators only."]]] call ExileServer_system_network_send_to;
 			_allowPurchase = false;
 		};
@@ -50,14 +50,14 @@ if(_groupsActive ==  1) then {
 			diag_log format ["[SNEAK_CUSTOMS]found DB group_name Record: %1", _dbEntry];
 			if((((_dbEntry select 0) select 0) == _availableForGroup) OR (_availableForGroup == "All")) then {
 				_allowPurchase = true;
-				diag_log format ["[SNEAK_CUSTOMS]Allow purchase of %1 for %2", _availableForGroup, getPlayerUID _player];
+				diag_log format ["[SNEAK_CUSTOMS-02]Allow purchase of %1 for %2", _availableForGroup, getPlayerUID _player];
 			} else {
-				diag_log format ["[SNEAK_CUSTOMS]Decline purchase of %1 skin for %2", _availableForGroup, getPlayerUID _player];
+				diag_log format ["[SNEAK_CUSTOMS-02]Decline purchase of %1 skin for %2", _availableForGroup, getPlayerUID _player];
 				[_sessionId, "toastRequest", ["ErrorTitleOnly", ["Sorry this Skin is Donators only."]]] call ExileServer_system_network_send_to;
 				_allowPurchase = false;
 			};
 		} else {
-			diag_log format ["[SNEAK_CUSTOMS]Decline purchase of %1 skin for %2", _availableForGroup, getPlayerUID _player];
+			diag_log format ["[SNEAK_CUSTOMS-03]Decline purchase of %1 skin for %2", _availableForGroup, getPlayerUID _player];
 			[_sessionId, "toastRequest", ["ErrorTitleOnly", ["Sorry this Skin is Donators only."]]] call ExileServer_system_network_send_to;
 			_allowPurchase = false;
 		};
