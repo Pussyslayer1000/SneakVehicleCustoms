@@ -26,6 +26,8 @@ _currentVehicleId = _currentVehicle getVariable ["ExileDatabaseID", -1];
 
 diag_log format ["[SNEAK_CUSTOMS]change_skin request from %1 for group: %2", getPlayerUID _player, _availableForGroup];
 
+diag_log format ["[SNEAK_CUSTOMS] DEBUG: %1", (_availableForGroup == "All")];
+
 
 //Big Ugly if else section
 //This stuff happens if you release your testing environment without improving :P
@@ -36,7 +38,7 @@ _allowPurchase = true; //always allow purchase to start with
 if(_groupsActive ==  1) then {
 	if(_liteVersion == 1) then {
 		_validUIDs = getArray(configFile >> "CfgSettings" >> "SneakCustomsGroup_" + _availableForGroup >> "uids");
-		if(((getPlayerUID _player) in _validUIDs) OR (_availableForGroup == "All")) then {
+		if(((getPlayerUID _player) in _validUIDs) || (_availableForGroup == "All")) then {
 			_allowPurchase = true;
 			diag_log format ["[SNEAK_CUSTOMS-01]Allow purchase of %1 for %2", _availableForGroup, getPlayerUID _player];
 		} else {
@@ -48,7 +50,7 @@ if(_groupsActive ==  1) then {
 		_dbEntry = format ["getGroupNameForUid:%1", getPlayerUID _player] call ExileServer_system_database_query_selectFull;
 		if(count _dbEntry != 0) then {
 			diag_log format ["[SNEAK_CUSTOMS]found DB group_name Record: %1", _dbEntry];
-			if((((_dbEntry select 0) select 0) == _availableForGroup) OR (_availableForGroup == "All")) then {
+			if((((_dbEntry select 0) select 0) == _availableForGroup) || (_availableForGroup == "All")) then {
 				_allowPurchase = true;
 				diag_log format ["[SNEAK_CUSTOMS-02]Allow purchase of %1 for %2", _availableForGroup, getPlayerUID _player];
 			} else {
