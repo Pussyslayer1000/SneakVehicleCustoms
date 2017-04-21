@@ -26,7 +26,7 @@ _currentVehicleId = _currentVehicle getVariable ["ExileDatabaseID", -1];
 
 diag_log format ["[SNEAK_CUSTOMS]change_skin request from %1 for group: %2", getPlayerUID _player, _availableForGroup];
 
-diag_log format ["[SNEAK_CUSTOMS] DEBUG: %1", (_availableForGroup == "All")];
+diag_log format ["[SNEAK_CUSTOMS] Current VehicleID: %1, Current Vehicle: %2", _currentVehicleId, _currentVehicle];
 
 
 //Big Ugly if else section
