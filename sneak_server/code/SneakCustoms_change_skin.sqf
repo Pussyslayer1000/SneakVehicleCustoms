@@ -48,7 +48,7 @@ if(_groupsActive ==  1) then {
 		};
 	} else {
 		_dbEntry = format ["getGroupNameForUid:%1", getPlayerUID _player] call ExileServer_system_database_query_selectFull;
-		if(count _dbEntry != 0 || (_availableForGroup == "All") then {
+		if(count _dbEntry != 0 || (_availableForGroup == "All")) then {
 			diag_log format ["[SNEAK_CUSTOMS]found DB group_name Record: %1", _dbEntry];
 			if((((_dbEntry select 0) select 0) == _availableForGroup) || (_availableForGroup == "All")) then {
 				_allowPurchase = true;
@@ -120,7 +120,7 @@ if((_currentVehicleId > -1) AND _allowPurchase) then {
 		};
 	};
 } else {
-		diag_log "[SNEAK_CUSTOMS]Invalid vehicleId";	
+		diag_log "[SNEAK_CUSTOMS]Purchase denied";	
 };
 
 
